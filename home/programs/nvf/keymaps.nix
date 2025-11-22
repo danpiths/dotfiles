@@ -97,7 +97,13 @@
 
   # Files
   {
-    mode = [ "n" ];
+    mode = ["n"];
+    key = "<leader>o";
+    action = "<cmd>Oil<CR>";
+    desc = "open oil.nvim";
+  }
+  {
+    mode = ["n"];
     key = "<leader><space>";
     action = "<cmd>lua Snacks.picker.smart()<CR>";
     desc = "smart find files";
@@ -417,7 +423,13 @@
     desc = "rename file";
   }
   {
-    mode = [ "n" ];
+    mode = ["n"];
+    key = "<leader>lf";
+    action = "<cmd>lua require('conform').format()<CR>";
+    desc = "format buffer";
+  }
+  {
+    mode = ["n"];
     key = "gd";
     action = "<cmd>lua Snacks.picker.lsp_definitions()<CR>";
     desc = "goto definition";
