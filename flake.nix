@@ -95,9 +95,11 @@
         # home-manager config
         home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "pre-nix-backup";
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "pre-nix-backup";
+          };
 
           home-manager.extraSpecialArgs =
             {

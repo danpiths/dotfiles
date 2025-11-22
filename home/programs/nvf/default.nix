@@ -34,8 +34,8 @@ in {
       };
     };
 
-    augroups = autogroups_and_commands.augroups;
-    autocmds = autogroups_and_commands.autocmds;
+    inherit (autogroups_and_commands) augroups;
+    inherit (autogroups_and_commands) autocmds;
 
     enableLuaLoader = true;
     autopairs.nvim-autopairs.enable = true;
