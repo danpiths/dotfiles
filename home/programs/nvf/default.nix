@@ -125,11 +125,15 @@ in {
 
     lsp = {
       enable = true;
+      mappings.format = null; # disable default format mapping so that conform.nvim can handle it
       formatOnSave = true;
       inlayHints.enable = true;
       lspconfig.enable = true;
       lspkind.enable = true;
-      lspsaga.enable = true;
+      lspsaga = {
+        enable = true;
+        setupOpts.symbol_in_winbar.enable = false; # disable winbar in lspsaga
+      };
       null-ls.enable = true;
       otter-nvim.enable = true;
       trouble.enable = true;
@@ -158,7 +162,6 @@ in {
     treesitter = {
       enable = true;
       autotagHtml = true;
-      context.enable = true;
       fold = true;
       textobjects.enable = true;
     };
