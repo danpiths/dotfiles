@@ -1,10 +1,8 @@
-{ pkgs }:
-
-let
+{pkgs}: let
   nixTools = with pkgs; [
     graphite-cli
     chafa
     imagemagick
   ];
 in
-nixTools
+  nixTools

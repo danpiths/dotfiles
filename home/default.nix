@@ -7,12 +7,9 @@
   catppuccinTheme,
   config,
   ...
-}:
-
-let
-  packages = import ./packages.nix { inherit pkgs; };
-in
-{
+}: let
+  packages = import ./packages.nix {inherit pkgs;};
+in {
   imports = [
     inputs.direnv-instant.homeModules.direnv-instant
     inputs.nvf.homeManagerModules.default
@@ -33,5 +30,5 @@ in
     };
   };
 
-  programs = import ./programs.nix { inherit homeDirectory pkgs catppuccinTheme; };
+  programs = import ./programs.nix {inherit homeDirectory pkgs catppuccinTheme;};
 }

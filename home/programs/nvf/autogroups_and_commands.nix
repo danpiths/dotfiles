@@ -1,6 +1,4 @@
-{ lua }:
-
-{
+{lua}: {
   augroups = [
     {
       name = "highlight-yank";
@@ -10,7 +8,7 @@
 
   autocmds = [
     {
-      event = [ "TextYankPost" ];
+      event = ["TextYankPost"];
       desc = "Highlight when yanking (copying) text";
       callback = lua ''
         function()

@@ -7,12 +7,9 @@
   username,
   config,
   ...
-}:
-
-let
+}: let
   nerdFonts = pkgs.nerd-fonts;
-in
-{
+in {
   environment = {
     systemPackages = with pkgs; [
       vim
@@ -22,7 +19,7 @@ in
       kitty
     ];
     # get completion for system packages (e.g. systemd)
-    pathsToLink = [ "/share/zsh" ];
+    pathsToLink = ["/share/zsh"];
     # set terminal vavariables
     variables = {
       EDITOR = "vim";

@@ -2,9 +2,7 @@
   homeDirectory,
   pkgs,
   catppuccinTheme,
-}:
-
-{
+}: {
   home-manager = {
     enable = true;
   };
@@ -38,9 +36,9 @@
     enableZshIntegration = true;
   };
 
-  zsh = import ./programs/zsh.nix { inherit homeDirectory pkgs; };
-  tmux = import ./programs/tmux.nix { inherit pkgs catppuccinTheme; };
-  nvf = import ./programs/nvf { inherit pkgs catppuccinTheme; };
+  zsh = import ./programs/zsh.nix {inherit homeDirectory pkgs;};
+  tmux = import ./programs/tmux.nix {inherit pkgs catppuccinTheme;};
+  nvf = import ./programs/nvf {inherit pkgs catppuccinTheme;};
   starship = import ./programs/starship.nix;
   eza = import ./programs/eza.nix;
   kitty = import ./programs/kitty.nix;

@@ -1,6 +1,7 @@
-{ pkgs, catppuccinTheme }:
-
-let
+{
+  pkgs,
+  catppuccinTheme,
+}: let
   ignored_filetypes = [
     "lazy"
     "snacks_dashboard"
@@ -10,9 +11,8 @@ let
     "NvimTree"
   ];
   lua = pkgs.lib.generators.mkLuaInline;
-  autogroups_and_commands = import ./autogroups_and_commands.nix { inherit lua; };
-in
-{
+  autogroups_and_commands = import ./autogroups_and_commands.nix {inherit lua;};
+in {
   enable = true;
   defaultEditor = true;
   enableManpages = true;
@@ -55,7 +55,7 @@ in
     keymaps = import ./keymaps.nix;
     languages = import ./languages.nix;
     statusline.lualine = import ./lualine.nix;
-    ui = import ./ui.nix { inherit ignored_filetypes; };
+    ui = import ./ui.nix {inherit ignored_filetypes;};
 
     autocomplete.blink-cmp = {
       enable = true;

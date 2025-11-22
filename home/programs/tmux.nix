@@ -1,6 +1,7 @@
-{ pkgs, catppuccinTheme }:
-
 {
+  pkgs,
+  catppuccinTheme,
+}: {
   enable = true;
   shell = "${pkgs.zsh}/bin/zsh";
 

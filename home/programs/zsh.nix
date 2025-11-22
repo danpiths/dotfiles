@@ -1,14 +1,14 @@
-{ homeDirectory, pkgs }:
-
-let
+{
+  homeDirectory,
+  pkgs,
+}: let
   zshBat = pkgs.fetchFromGitHub {
     owner = "fdellwing";
     repo = "zsh-bat";
     rev = "master";
     sha256 = "sha256-TTuYZpev0xJPLgbhK5gWUeGut0h7Gi3b+e00SzFvSGo=";
   };
-in
-{
+in {
   enable = true;
   autocd = true;
   enableCompletion = true;

@@ -25,106 +25,107 @@
     };
   };
 
-  outputs =
-    inputs@{
-      darwin,
-      nixpkgs,
-      home-manager,
-      stylix,
-      ...
-    }:
-    let
-      system = "aarch64-darwin";
-      hostName = "Dhwanils-MacBook-Pro";
-      username = "dhwanil";
-      stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent
-      catppuccinTheme = "mocha";
-      allowedUnfreeSoftware = [
-        "graphite-cli"
-      ];
+  outputs = inputs @ {
+    darwin,
+    nixpkgs,
+    home-manager,
+    stylix,
+    ...
+  }: let
+    system = "aarch64-darwin";
+    hostName = "Dhwanils-MacBook-Pro";
+    username = "dhwanil";
+    stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent
+    catppuccinTheme = "mocha";
+    allowedUnfreeSoftware = [
+      "graphite-cli"
+    ];
 
-      # TEMPORARY (done to skip failing fish build via direnv)
-      overlays = [
-        (final: prev: {
-          fish = prev.fish.overrideAttrs (old: {
-            doCheck = false; # skip the failing test suite
-          });
-        })
-      ];
+    # TEMPORARY (done to skip failing fish build via direnv)
+    overlays = [
+      (final: prev: {
+        fish = prev.fish.overrideAttrs (old: {
+          doCheck = false; # skip the failing test suite
+        });
+      })
+    ];
 
-      pkgs = import nixpkgs {
-        inherit system overlays;
-        config = {
-          # ONLY allow the packages in `allowedUnfree`
-          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) allowedUnfreeSoftware;
-        };
+    pkgs = import nixpkgs {
+      inherit system overlays;
+      config = {
+        # ONLY allow the packages in `allowedUnfree`
+        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) allowedUnfreeSoftware;
       };
+    };
 
-      homeDirPrefix = if pkgs.stdenv.hostPlatform.isDarwin then "/Users" else "/home";
-      homeDirectory = "${homeDirPrefix}/${username}";
+    homeDirPrefix =
+      if pkgs.stdenv.hostPlatform.isDarwin
+      then "/Users"
+      else "/home";
+    homeDirectory = "${homeDirPrefix}/${username}";
 
-      systemVariables = {
-        inherit
-          system
-          hostName
-          username
-          stateVersion
-          pkgs
-          homeDirPrefix
-          homeDirectory
-          catppuccinTheme
-          ;
-      };
-    in
-    {
+    systemVariables = {
+      inherit
+        system
+        hostName
+        username
+        stateVersion
+        pkgs
+        homeDirPrefix
+        homeDirectory
+        catppuccinTheme
+        ;
+    };
+  in {
+    # Build darwin flake using:
+    # $ sudo darwin-rebuild build --flake .
+    darwinConfigurations.${hostName} = darwin.lib.darwinSystem {
+      modules = [
+        stylix.darwinModules.stylix
+        {
+          options.stylix.icons = nixpkgs.lib.mkOption {
+            type = nixpkgs.lib.types.nullOr nixpkgs.lib.types.attrs;
+            default = {};
+            description = "Dummy Stylix icons option to satisfy modules that expect it (needed for darwin stylix).";
+          };
+        }
 
-      # Build darwin flake using:
-      # $ sudo darwin-rebuild build --flake .
-      darwinConfigurations.${hostName} = darwin.lib.darwinSystem {
-        modules = [
-          stylix.darwinModules.stylix
-          {
-            options.stylix.icons = nixpkgs.lib.mkOption {
-              type = nixpkgs.lib.types.nullOr nixpkgs.lib.types.attrs;
-              default = { };
-              description = "Dummy Stylix icons option to satisfy modules that expect it (needed for darwin stylix).";
-            };
-          }
+        ./configuration.nix
 
-          ./configuration.nix
+        # home-manager config
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "pre-nix-backup";
 
-          # home-manager config
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "pre-nix-backup";
-
-            home-manager.extraSpecialArgs = {
+          home-manager.extraSpecialArgs =
+            {
               inherit inputs;
             }
             // systemVariables;
 
-            home-manager.users = {
-              ${username} = ./home;
-            };
+          home-manager.users = {
+            ${username} = ./home;
+          };
 
-            # shared stylix modules
-            home-manager.sharedModules = [
-              {
-                stylix.targets = {
-                  tmux.enable = false;
-                  nvf.enable = false;
-                };
-              }
-            ];
-          }
-        ];
+          # shared stylix modules
+          home-manager.sharedModules = [
+            {
+              stylix.targets = {
+                tmux.enable = false;
+                nvf.enable = false;
+              };
+            }
+          ];
+        }
+      ];
 
-        specialArgs = {
+      specialArgs =
+        {
           inherit inputs;
         }
         // systemVariables;
-      };
     };
+  };
 }
