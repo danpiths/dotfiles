@@ -183,7 +183,16 @@ in {
       enable = true;
       gitsigns = {
         enable = true;
-        codeActions.enable = true;
+        mappings = {
+          toggleBlame = "<leader>htb";
+          toggleDeleted = "<leader>htd";
+        };
+        setupOpts = {
+          current_line_blame = true;
+          current_line_blame_opts = {
+            delay = 500;
+          };
+        };
       };
     };
 

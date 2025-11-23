@@ -1,4 +1,24 @@
 [
+  # Leader groups
+  {
+    mode = ["n"];
+    key = "<leader>c";
+    action = "<nop>";
+    desc = "+git-conflict";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>d";
+    action = "<nop>";
+    desc = "+debug";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>ht";
+    action = "<nop>";
+    desc = "+toggle [Gitsigns]";
+  }
+
   # Zen
   {
     mode = ["n"];
@@ -25,6 +45,20 @@
     key = "<leader>S";
     action = "<cmd>lua Snacks.scratch.select()<CR>";
     desc = "select scratch buffer";
+  }
+
+  # Todo (or toggle)
+  {
+    mode = ["n"];
+    key = "<leader>t";
+    action = "<nop>";
+    desc = "+todo (or toggle)";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>ti";
+    action = "<cmd>lua require('nvim-biscuits').toggle_biscuits()<CR>";
+    desc = "toggle nvim-b[i]scuits";
   }
 
   # Terminal
@@ -56,31 +90,37 @@
   }
   {
     mode = ["n"];
-    key = "<leader>nu";
+    key = "<leader>nd";
     action = "<cmd>lua Snacks.notifier.hide()<CR>";
     desc = "dismiss all notifications";
   }
 
-  # Leader groups
+  # Open
   {
     mode = ["n"];
-    key = "<leader>c";
+    key = "<leader>o";
     action = "<nop>";
-    desc = "+git-conflict";
+    desc = "+open";
   }
   {
     mode = ["n"];
-    key = "<leader>d";
-    action = "<nop>";
-    desc = "+debug";
+    key = "<leader>oo";
+    action = "<cmd>Oil<CR>";
+    desc = "open oil.nvim";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>od";
+    action = "<cmd>lua Snacks.dashboard.open()<CR>";
+    desc = "open dashboard";
   }
 
-  # Toggle
+  # Plugins
   {
     mode = ["n"];
-    key = "<leader>t";
+    key = "<leader>p";
     action = "<nop>";
-    desc = "+toggle";
+    desc = "+plugin";
   }
   {
     mode = ["n"];
@@ -107,6 +147,26 @@
     desc = "plugin luadev run word";
   }
 
+  # Quickfix
+  {
+    mode = ["n"];
+    key = "<leader>q";
+    action = "<nop>";
+    desc = "+quickfix";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>qo";
+    action = "<cmd>:copen<CR>";
+    desc = "quickfix open";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>qc";
+    action = "<cmd>:cclose<CR>";
+    desc = "quickfix close";
+  }
+
   # Buffers
   {
     mode = ["n"];
@@ -125,26 +185,6 @@
     key = "<leader>bD";
     action = "<cmd>lua Snacks.bufdelete.all()<CR>";
     desc = "delete all buffers";
-  }
-
-  # Open
-  {
-    mode = ["n"];
-    key = "<leader>o";
-    action = "<nop>";
-    desc = "+open";
-  }
-  {
-    mode = ["n"];
-    key = "<leader>oo";
-    action = "<cmd>Oil<CR>";
-    desc = "open oil.nvim";
-  }
-  {
-    mode = ["n"];
-    key = "<leader>od";
-    action = "<cmd>lua Snacks.dashboard.open()<CR>";
-    desc = "open dashboard";
   }
 
   # Files
@@ -512,7 +552,7 @@
   }
   {
     mode = ["n"];
-    key = "gr";
+    key = "grr";
     action = "<cmd>lua Snacks.picker.lsp_references()<CR>";
     nowait = true;
     desc = "goto references";
