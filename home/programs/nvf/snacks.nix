@@ -72,6 +72,12 @@
             action = ":lua Snacks.dashboard.pick('files')";
           }
           {
+            icon = " ";
+            key = "p";
+            desc = "Find Project";
+            action = ":lua Snacks.dashboard.pick('projects')";
+          }
+          {
             icon = " ";
             key = "n";
             desc = "New File";

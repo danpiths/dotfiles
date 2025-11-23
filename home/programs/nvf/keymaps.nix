@@ -109,13 +109,27 @@
     desc = "delete all buffers";
   }
 
-  # Files
+  # Open
   {
     mode = ["n"];
     key = "<leader>o";
+    action = "<nop>";
+    desc = "+open";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>oo";
     action = "<cmd>Oil<CR>";
     desc = "open oil.nvim";
   }
+  {
+    mode = ["n"];
+    key = "<leader>od";
+    action = "<cmd>lua Snacks.dashboard.open()<CR>";
+    desc = "open dashboard";
+  }
+
+  # Files
   {
     mode = ["n"];
     key = "<leader><space>";

@@ -51,7 +51,7 @@ in {
     rmf = "rm -rf";
     zsrc = "source ~/.zshrc";
 
-    # git stash
+    # git
     gtst = "git stash -u";
     gtsp = "git stash pop";
     gtsl = "git stash list";
@@ -59,6 +59,7 @@ in {
     gtsa = "git stash apply";
     gtsdi = "function _gtsdi() { git stash drop stash@{$1}; }; _gtsdi";
     gtspi = "function _gtspi() { git stash apply stash@{$1}; }; _gtspi";
+    lg = "lazygit";
 
     # eza
     ls = "eza --icons";
