@@ -74,11 +74,19 @@
     action = "<nop>";
     desc = "+debug";
   }
+
+  # Toggle
   {
     mode = ["n"];
     key = "<leader>t";
     action = "<nop>";
     desc = "+toggle";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>tbi";
+    action = "<cmd>lua require('nvim-biscuits').toggle_biscuits()<CR>";
+    desc = "toggle nvim-biscuits";
   }
 
   # Buffers
@@ -93,6 +101,12 @@
     key = "<leader>bd";
     action = "<cmd>lua Snacks.bufdelete()<CR>";
     desc = "delete buffer";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>bD";
+    action = "<cmd>lua Snacks.bufdelete.all()<CR>";
+    desc = "delete all buffers";
   }
 
   # Files
@@ -125,7 +139,7 @@
   {
     mode = ["n"];
     key = "<leader>fb";
-    action = "<cmd>lua Snacks.picker.buffers()<CR>";
+    action = "<cmd>lua Snacks.picker.buffers({ on_show = function() vim.cmd.stopinsert() end, win = { input = { keys = { ['d'] = 'bufdelete' } } } })<CR>";
     desc = "find buffer";
   }
   {
@@ -430,6 +444,30 @@
   }
   {
     mode = ["n"];
+    key = "<leader>la";
+    action = "<cmd>Lspsaga code_action<CR>";
+    desc = "get code actions";
+  }
+  {
+    mode = ["n"];
+    key = "]d";
+    action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
+    desc = "next diagnostic";
+  }
+  {
+    mode = ["n"];
+    key = "[d";
+    action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
+    desc = "prev diagnostic";
+  }
+  {
+    mode = ["n"];
+    key = "<S-k>";
+    action = "<cmd>Lspsaga hover_doc<CR>";
+    desc = "prev diagnostic";
+  }
+  {
+    mode = ["n"];
     key = "gd";
     action = "<cmd>lua Snacks.picker.lsp_definitions()<CR>";
     desc = "goto definition";
@@ -471,6 +509,36 @@
     mode = ["n"];
     key = "<leader>uC";
     action = "<cmd>lua Snacks.picker.colorschemes()<CR>";
-    desc = "Colorschemes";
+    desc = "colorschemes";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>w";
+    action = "<C-w>w";
+    desc = "switch windows (easier)";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>uh";
+    action = "<cmd>nohlsearch<CR>";
+    desc = "clear search highlights";
+  }
+  {
+    mode = [
+      "n"
+      "v"
+    ];
+    key = "j";
+    action = "gj";
+    desc = "move down visual line";
+  }
+  {
+    mode = [
+      "n"
+      "v"
+    ];
+    key = "k";
+    action = "gk";
+    desc = "move up visual line";
   }
 ]

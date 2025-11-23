@@ -113,6 +113,23 @@ in {
       nvim-lint = {
         enable = true;
       };
+      config = {
+        virtual_text = true;
+        signs = {
+          text = lua ''
+            {
+              [vim.diagnostic.severity.ERROR] = '󰅚 ',
+              [vim.diagnostic.severity.WARN] = '󰀪 ',
+              [vim.diagnostic.severity.INFO] = '󰋽 ',
+              [vim.diagnostic.severity.HINT] = '󰌶 ',
+            }
+          '';
+        };
+        float = {
+          border = "rounded";
+          source = "always";
+        };
+      };
     };
 
     git = {
@@ -125,14 +142,20 @@ in {
 
     lsp = {
       enable = true;
-      mappings.format = null; # disable default format mapping so that conform.nvim can handle it
+      mappings = {
+        format = null; # disable default format mapping so that conform.nvim can handle it
+        codeAction = null; # disable default code action mapping so that lspsaga can handle it
+      };
       formatOnSave = true;
       inlayHints.enable = true;
       lspconfig.enable = true;
       lspkind.enable = true;
       lspsaga = {
         enable = true;
-        setupOpts.symbol_in_winbar.enable = false; # disable winbar in lspsaga
+        setupOpts = {
+          symbol_in_winbar.enable = false; # disable winbar in lspsaga
+          lightbulb.enable = false; # disable lightbulb in lspsaga
+        };
       };
       null-ls.enable = true;
       otter-nvim.enable = true;
@@ -142,14 +165,11 @@ in {
     options = {
       shiftwidth = 2;
       tabstop = 2;
-    };
-
-    terminal.toggleterm = {
-      enable = true;
-      setupOpts = {
-        winbar.enabled = false;
-        direction = "float";
-      };
+      signcolumn = "yes";
+      termguicolors = true;
+      scrolloff = 3;
+      wrap = true;
+      linebreak = true;
     };
 
     theme = {
@@ -178,7 +198,12 @@ in {
       };
 
       nix-develop.enable = true;
-      nvim-biscuits.enable = true;
+      nvim-biscuits = {
+        enable = false;
+        setupOpts = {
+          cursor_line_only = true;
+        };
+      };
       oil-nvim.enable = true;
 
       preview.markdownPreview = {

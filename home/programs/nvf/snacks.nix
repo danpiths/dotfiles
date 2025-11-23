@@ -10,6 +10,7 @@
     image.enabled = true;
     indent.enabled = true;
     input.enabled = true;
+    lazygit.enabled = true;
     notify.enabled = true;
     picker.enabled = true;
     quickfile.enabled = true;
