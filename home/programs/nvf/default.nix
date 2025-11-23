@@ -10,8 +10,37 @@
     "notify"
     "NvimTree"
   ];
+
   lua = pkgs.lib.generators.mkLuaInline;
+
   autogroups_and_commands = import ./autogroups_and_commands.nix {inherit lua;};
+  dooing-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "dooing";
+    src = pkgs.fetchFromGitHub {
+      owner = "atiladefreitas";
+      repo = "dooing";
+      rev = "master";
+      sha256 = "sha256-nAFmNgMcJ3q0PrlMB2BzSzjdxV/94JUF/QE/cHx+FNQ=";
+    };
+  };
+  luadev-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "luadev";
+    src = pkgs.fetchFromGitHub {
+      owner = "bfredl";
+      repo = "nvim-luadev";
+      rev = "master";
+      sha256 = "sha256-/k/vl22LDq44xut/XW7K9uLxpMNt3vOG7pD02lYRa18";
+    };
+  };
+  vim-tmux-navigator = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-tmux-navigator";
+    src = pkgs.fetchFromGitHub {
+      owner = "christoomey";
+      repo = "vim-tmux-navigator";
+      rev = "master";
+      sha256 = "sha256-IEPnr/GdsAnHzdTjFnXCuMyoNLm3/Jz4cBAM0AJBrj8";
+    };
+  };
 in {
   enable = true;
   defaultEditor = true;
@@ -31,6 +60,24 @@ in {
     extraPlugins = with pkgs.vimPlugins; {
       ts-comments = {
         package = ts-comments-nvim;
+      };
+      dooing = {
+        package = dooing-nvim;
+        setup = ''
+          require("dooing").setup({
+            quick_keys = false,
+            per_project = {
+              enabled = true,
+              auto_gitignore = "prompt",
+            },
+          })
+        '';
+      };
+      luadev = {
+        package = luadev-nvim;
+      };
+      vim-tmux-navigator = {
+        package = vim-tmux-navigator;
       };
     };
 

@@ -84,9 +84,27 @@
   }
   {
     mode = ["n"];
-    key = "<leader>tbi";
-    action = "<cmd>lua require('nvim-biscuits').toggle_biscuits()<CR>";
-    desc = "toggle nvim-biscuits";
+    key = "<leader>pl";
+    action = "<nop>";
+    desc = "+plugin luadev";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>pll";
+    action = "<Plug>(Luadev-RunLine)";
+    desc = "plugin luadev run line";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>plr";
+    action = "<Plug>(Luadev-Run)";
+    desc = "plugin luadev run";
+  }
+  {
+    mode = ["n" "v"];
+    key = "<leader>plw";
+    action = "<Plug>(Luadev-RunWord)";
+    desc = "plugin luadev run word";
   }
 
   # Buffers
