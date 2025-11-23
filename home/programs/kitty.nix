@@ -14,6 +14,7 @@
   settings = {
     window_padding_width = "8 16 16";
     hide_window_decorations = "titlebar-only";
+    close_on_child_death = "yes";
     cursor_shape = "block";
     cursor_shape_unfocused = "hollow";
     cursor_trail = 50;

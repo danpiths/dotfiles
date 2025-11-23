@@ -36,15 +36,15 @@
     hostName = "Dhwanils-MacBook-Pro";
     username = "dhwanil";
     stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent
-    catppuccinTheme = "mocha";
+    catppuccinTheme = import ./theme.nix;
     allowedUnfreeSoftware = [
       "graphite-cli"
     ];
 
     # TEMPORARY (done to skip failing fish build via direnv)
     overlays = [
-      (final: prev: {
-        fish = prev.fish.overrideAttrs (old: {
+      (_: prev: {
+        fish = prev.fish.overrideAttrs (_: {
           doCheck = false; # skip the failing test suite
         });
       })
