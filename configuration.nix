@@ -15,7 +15,6 @@ in {
       vim
       nixd
       nil
-      # alacritty
       kitty
     ];
     # get completion for system packages (e.g. systemd)
@@ -40,6 +39,7 @@ in {
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog
     stateVersion = 6;
+    primaryUser = username;
   };
 
   # The platform the configuration will be used on.

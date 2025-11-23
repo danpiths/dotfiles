@@ -22,5 +22,6 @@
     cursor_blink_interval = 0;
     cursor_trail_start_threshold = 4;
     scrollback_lines = 100000;
+    macos_option_as_alt = "left";
   };
 }

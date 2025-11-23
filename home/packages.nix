@@ -3,6 +3,9 @@
     graphite-cli
     chafa
     imagemagick
+    ghostscript
+    tectonic
+    mermaid-cli
   ];
 in
   nixTools
