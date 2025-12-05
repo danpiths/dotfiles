@@ -613,4 +613,18 @@
     action = "gk";
     desc = "move up visual line";
   }
+
+  # Folds
+  {
+    mode = ["n"];
+    key = "zR";
+    action = "<cmd>lua require('ufo').openAllFolds()<CR>";
+    desc = "UFO: Open all folds";
+  }
+  {
+    mode = ["n"];
+    key = "zM";
+    action = "<cmd>lua require('ufo').closeAllFolds()<CR>";
+    desc = "UFO: Close all folds";
+  }
 ]
