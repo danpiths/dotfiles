@@ -9,6 +9,7 @@
   ...
 }: let
   packages = import ./packages.nix {inherit pkgs;};
+  zshPath = "${pkgs.zsh}/bin/zsh";
 in {
   imports = [
     inputs.direnv-instant.homeModules.direnv-instant
@@ -27,6 +28,10 @@ in {
     # (do not use recursive to avoid cpoying instead of symlinking)
     file.".config/graphite" = {
       source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/graphite";
+    };
+
+    sessionVariables = {
+      MAKEFLAGS = "SHELL=${zshPath}";
     };
   };
 
