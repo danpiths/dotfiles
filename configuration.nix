@@ -16,6 +16,7 @@ in {
       nixd
       nil
       kitty
+      utm
     ];
     # get completion for system packages (e.g. systemd)
     pathsToLink = ["/share/zsh"];
@@ -32,6 +33,10 @@ in {
     # use determinate systems nix management
     enable = false;
   };
+
+  environment.etc."nix/nix.custom.conf".text = ''
+    trusted-users = root dhwanil
+  '';
 
   system = {
     # Set Git commit hash for darwin-version.

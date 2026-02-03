@@ -39,6 +39,7 @@
     catppuccinTheme = import ./theme.nix;
     allowedUnfreeSoftware = [
       "graphite-cli"
+      "claude-code"
     ];
 
     # TEMPORARY (done to skip failing fish build via direnv)
