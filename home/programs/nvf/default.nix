@@ -20,7 +20,7 @@
       owner = "atiladefreitas";
       repo = "dooing";
       rev = "master";
-      sha256 = "sha256-nAFmNgMcJ3q0PrlMB2BzSzjdxV/94JUF/QE/cHx+FNQ=";
+      sha256 = "sha256-s4/BSJd56MnYNkd+nf+BPN6lZGd/BGNy+dWuzeGG4Uo=";
     };
   };
   luadev-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -47,7 +47,7 @@
       owner = "davidmh";
       repo = "mdx.nvim";
       rev = "master";
-      sha256 = "sha256-jpMcrWx/Rg9sMfkQFXnIM8VB5qRuSB/70wuSh6Y5uFk";
+      sha256 = "sha256-QaPYSTH59j8tUa5rTY8I9VdQWLkhy8SWhNigEXHFn1c=";
     };
   };
 in {
