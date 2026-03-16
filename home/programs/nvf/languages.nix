@@ -64,5 +64,6 @@
     enable = true;
     lsp.enable = true;
     extensions.ts-error-translator.enable = true;
+    extraDiagnostics.enable = false;
   };
 }
