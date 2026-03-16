@@ -9,6 +9,8 @@
     mermaid-cli
     devenv
     claude-code
+    erlang
+    gleam
   ];
 in
   nixTools
