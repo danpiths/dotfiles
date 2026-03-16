@@ -41,15 +41,6 @@
       sha256 = "sha256-IEPnr/GdsAnHzdTjFnXCuMyoNLm3/Jz4cBAM0AJBrj8";
     };
   };
-  mdx-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "mdx";
-    src = pkgs.fetchFromGitHub {
-      owner = "davidmh";
-      repo = "mdx.nvim";
-      rev = "master";
-      sha256 = "sha256-QaPYSTH59j8tUa5rTY8I9VdQWLkhy8SWhNigEXHFn1c=";
-    };
-  };
 in {
   enable = true;
   defaultEditor = true;
@@ -65,7 +56,6 @@ in {
       sqlfluff
       tree-sitter
       nodejs_24
-      mdx-language-server
     ];
     extraPlugins = with pkgs.vimPlugins; {
       ts-comments = {
@@ -88,30 +78,6 @@ in {
       };
       vim-tmux-navigator = {
         package = vim-tmux-navigator;
-      };
-      mdx = {
-        package = mdx-nvim;
-        setup = ''
-          require("mdx").setup({})
-
-          -- Configure mdx_analyzer LSP server using modern vim.lsp.config API
-          local util = require 'lspconfig.util'
-          vim.lsp.config.mdx_analyzer = {
-            cmd = { 'mdx-language-server', '--stdio' },
-            filetypes = { 'mdx' },
-            root_markers = { 'package.json' },
-            settings = {},
-            init_options = {
-              typescript = {},
-            },
-            before_init = function(_, config)
-              if config.init_options and config.init_options.typescript and not config.init_options.typescript.tsdk then
-                config.init_options.typescript.tsdk = util.get_typescript_server_path(config.root_dir)
-              end
-            end,
-          }
-          vim.lsp.enable('mdx_analyzer')
-        '';
       };
     };
 
