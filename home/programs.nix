@@ -31,6 +31,8 @@
     ];
   };
 
+  codex.enable = true;
+
   fzf = {
     enable = true;
     enableZshIntegration = true;
