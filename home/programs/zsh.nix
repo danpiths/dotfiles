@@ -8,6 +8,12 @@
     rev = "master";
     sha256 = "sha256-TTuYZpev0xJPLgbhK5gWUeGut0h7Gi3b+e00SzFvSGo=";
   };
+  zshViMode = pkgs.fetchFromGitHub {
+    owner = "jeffreytse";
+    repo = "zsh-vi-mode";
+    rev = "master";
+    sha256 = "sha256-WdZHCVxVVOs4HyG5f56vAA17UWYOvb9Yf6v7M1RIdU4=";
+  };
 in {
   enable = true;
   autocd = true;
@@ -43,6 +49,11 @@ in {
       name = "zsh-bat";
       src = zshBat;
       file = "zsh-bat.plugin.zsh";
+    }
+    {
+      name = "zsh-vi-mode";
+      src = zshViMode;
+      file = "zsh-vi-mode.plugin.zsh";
     }
   ];
 
