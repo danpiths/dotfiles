@@ -17,6 +17,7 @@ in {
       nil
       kitty
       utm
+      raycast
     ];
     # get completion for system packages (e.g. systemd)
     pathsToLink = ["/share/zsh"];
@@ -110,6 +111,10 @@ in {
     ];
 
     casks = [
+      "kindavim"
+      "wooshy"
+      "scrolla"
+      "linear-linear"
       "beekeeper-studio"
       "bentobox"
       "docker-desktop"

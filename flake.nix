@@ -40,6 +40,7 @@
     allowedUnfreeSoftware = [
       "graphite-cli"
       "claude-code"
+      "raycast"
     ];
 
     # TEMPORARY (done to skip failing fish build via direnv)
