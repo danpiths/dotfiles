@@ -1,6 +1,8 @@
 {
   enable = true;
-  theme = "catppuccin";
+  # TODO: catppuccin removed the generic lualine theme, only flavor-specific ones exist now
+  # (e.g. catppuccin-latte). nvf's enum doesn't include those yet. Using "auto" as a workaround.
+  theme = "auto";
 
   componentSeparator = {
     left = " ▎";
