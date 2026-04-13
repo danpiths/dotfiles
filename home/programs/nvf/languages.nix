@@ -36,7 +36,10 @@
 
   markdown = {
     enable = true;
-    lsp.enable = true;
+    lsp = {
+      enable = true;
+      servers = ["markdown-oxide"];
+    };
     extensions.markview-nvim.enable = true;
   };
 
