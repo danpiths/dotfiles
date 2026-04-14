@@ -130,6 +130,7 @@ in {
       "sf-symbols"
       "ungoogled-chromium"
       "zed"
+      "karabiner-elements"
     ];
   };
 

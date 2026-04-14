@@ -29,6 +29,9 @@ in {
     file.".config/graphite" = {
       source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/graphite";
     };
+    file.".config/karabiner" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/karabiner";
+    };
 
     sessionVariables = {
       MAKEFLAGS = "SHELL=${zshPath}";
