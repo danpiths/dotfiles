@@ -79,6 +79,14 @@ in {
       vim-tmux-navigator = {
         package = vim-tmux-navigator;
       };
+      persistent-breakpoints = {
+        package = persistent-breakpoints-nvim;
+        setup = ''
+          require("persistent-breakpoints").setup({
+            load_breakpoints_event = { "BufReadPost" },
+          })
+        '';
+      };
     };
 
     inherit (autogroups_and_commands) augroups;
@@ -149,11 +157,61 @@ in {
 
     debugger.nvim-dap = {
       enable = true;
-      mappings.hover = "<leader>dk";
+      mappings.hover = null;
       ui = {
         enable = true;
       };
     };
+
+    luaConfigRC.breakpoints-picker = ''
+      function _G.pick_breakpoints()
+        local bps = require("dap.breakpoints").get()
+        local items = {}
+        for bufnr, buf_bps in pairs(bps) do
+          local fname = vim.api.nvim_buf_get_name(bufnr)
+          for _, bp in ipairs(buf_bps) do
+            table.insert(items, { text = fname .. ":" .. bp.line, file = fname, pos = { bp.line, 0 }, bp_line = bp.line })
+          end
+        end
+        if #items == 0 then vim.notify("No breakpoints set", vim.log.levels.INFO) return end
+        Snacks.picker({
+          title = "Breakpoints",
+          items = items,
+          format = "file",
+          on_show = function() vim.cmd.stopinsert() end,
+          confirm = function(picker, item) picker:close() if item then vim.cmd("edit " .. item.file) vim.api.nvim_win_set_cursor(0, { item.bp_line, 0 }) end end,
+          actions = { remove_bp = function(picker)
+            for _, item in ipairs(picker:selected({ fallback = true })) do
+              vim.cmd("edit " .. item.file)
+              vim.api.nvim_win_set_cursor(0, { item.bp_line, 0 })
+              require("persistent-breakpoints.api").toggle_breakpoint()
+            end
+            picker:refresh()
+          end },
+          win = { input = { keys = { ["d"] = "remove_bp", ["x"] = "remove_bp" } } },
+        })
+      end
+
+      function _G.goto_breakpoint(dir)
+        local bufnr = vim.api.nvim_get_current_buf()
+        local all_bps = require("dap.breakpoints").get(bufnr)
+        local bps = all_bps[bufnr]
+        if not bps or #bps == 0 then vim.notify("No breakpoints in buffer", vim.log.levels.INFO) return end
+        local cur = vim.api.nvim_win_get_cursor(0)[1]
+        local lines = {}
+        for _, bp in ipairs(bps) do table.insert(lines, bp.line) end
+        table.sort(lines)
+        local target
+        if dir == "next" then
+          for _, l in ipairs(lines) do if l > cur then target = l break end end
+          target = target or lines[1]
+        else
+          for i = #lines, 1, -1 do if lines[i] < cur then target = lines[i] break end end
+          target = target or lines[#lines]
+        end
+        vim.api.nvim_win_set_cursor(0, { target, 0 })
+      end
+    '';
 
     diagnostics = {
       enable = true;

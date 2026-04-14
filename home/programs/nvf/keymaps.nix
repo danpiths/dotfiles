@@ -147,6 +147,54 @@
     desc = "plugin luadev run word";
   }
 
+  # Focus current debug frame
+  {
+    mode = ["n"];
+    key = "<leader>df";
+    action = "<cmd>lua require('dap').focus_frame()<CR>";
+    desc = "go to debugger cursor";
+  }
+
+  # Debug hover (uses dap-ui for better formatting than dap.ui.widgets)
+  {
+    mode = ["n" "v"];
+    key = "<leader>dk";
+    action = "<cmd>lua require('dapui').eval()<CR>";
+    desc = "debug hover";
+  }
+
+  # Breakpoints
+  {
+    mode = ["n"];
+    key = "<leader>db";
+    action = "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<CR>";
+    desc = "toggle breakpoint";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>fB";
+    action = "<cmd>lua pick_breakpoints()<CR>";
+    desc = "find breakpoints";
+  }
+  {
+    mode = ["n"];
+    key = "]b";
+    action = "<cmd>lua goto_breakpoint('next')<CR>";
+    desc = "next breakpoint";
+  }
+  {
+    mode = ["n"];
+    key = "[b";
+    action = "<cmd>lua goto_breakpoint('prev')<CR>";
+    desc = "prev breakpoint";
+  }
+  {
+    mode = ["n"];
+    key = "<leader>dX";
+    action = "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints(); vim.notify('All breakpoints cleared', vim.log.levels.INFO)<CR>";
+    desc = "clear all breakpoints";
+  }
+
   # Quickfix
   {
     mode = ["n"];
