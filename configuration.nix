@@ -139,6 +139,14 @@ in {
     home = homeDirectory;
   };
 
+  # Disable Spotlight keyboard shortcut (Cmd+Space) so Raycast can use it
+  system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
+    AppleSymbolicHotKeys = {
+      "64" = { enabled = false; }; # Show Spotlight search
+      "65" = { enabled = false; }; # Show Finder search window
+    };
+  };
+
   # define default styles for all apps using stylix
   stylix = {
     enable = true;
