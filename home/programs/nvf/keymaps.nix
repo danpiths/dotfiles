@@ -1,4 +1,12 @@
 [
+  # Escape insert mode with jk
+  {
+    mode = ["i"];
+    key = "jk";
+    action = "<Esc>";
+    desc = "escape insert mode";
+  }
+
   # Leader groups
   {
     mode = ["n"];
@@ -259,7 +267,7 @@
   {
     mode = ["n"];
     key = "<leader>fb";
-    action = "<cmd>lua Snacks.picker.buffers({ on_show = function() vim.cmd.stopinsert() end, win = { input = { keys = { ['d'] = 'bufdelete' } } } })<CR>";
+    action = "<cmd>lua Snacks.picker.buffers({ on_show = function() vim.cmd.stopinsert() end, win = { input = { keys = { ['d'] = 'bufdelete', ['x'] = 'bufdelete' } } } })<CR>";
     desc = "find buffer";
   }
   {
