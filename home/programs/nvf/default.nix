@@ -256,6 +256,7 @@ in {
 
     lsp = {
       enable = true;
+      presets.tailwindcss-language-server.enable = true;
       mappings = {
         format = null; # disable default format mapping so that conform.nvim can handle it
         codeAction = null; # disable default code action mapping so that lspsaga can handle it

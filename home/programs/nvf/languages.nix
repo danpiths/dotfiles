@@ -58,12 +58,7 @@
     lsp.enable = true;
   };
 
-  tailwind = {
-    enable = true;
-    lsp.enable = true;
-  };
-
-  ts = {
+  typescript = {
     enable = true;
     lsp.enable = true;
     extensions.ts-error-translator.enable = true;
