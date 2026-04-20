@@ -32,6 +32,12 @@ in {
     file.".config/karabiner" = {
       source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/karabiner";
     };
+    file.".config/forgecode/.forge.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/.forge.toml";
+    };
+    file.".config/forgecode/permissions.yaml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
+    };
 
     sessionVariables = {
       MAKEFLAGS = "SHELL=${zshPath}";

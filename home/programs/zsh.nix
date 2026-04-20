@@ -28,11 +28,28 @@ in {
   autosuggestion.enable = true;
 
   initContent = ''
+    export FORGE_CONFIG="${homeDirectory}/.config/forgecode"
+
     if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
         export APPEARANCE="dark"
     else
         export APPEARANCE="light"
     fi
+
+    # forge shell integration
+    if [[ -z "$_FORGE_PLUGIN_LOADED" ]]; then
+        eval "$(forge zsh plugin)"
+    fi
+    if [[ -z "$_FORGE_THEME_LOADED" ]]; then
+        eval "$(forge zsh theme)"
+    fi
+
+    # re-apply forge keybindings after zsh-vi-mode overrides them
+    function zvm_after_init() {
+        bindkey '^M' forge-accept-line
+        bindkey '^J' forge-accept-line
+        bindkey '^I' forge-completion
+    }
   '';
 
   oh-my-zsh = {
