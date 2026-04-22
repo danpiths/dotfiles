@@ -26,6 +26,7 @@
     mermaid-cli
     devenv
     claude-code
+    nodejs
     erlang
     gleam
     forgecode
