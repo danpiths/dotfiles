@@ -81,7 +81,7 @@ model_id = "gpt-5.4"
 
 [updates]
 frequency = "daily"
-auto_update = true
+auto_update = false
 
 [compact]
 retention_window = 6
