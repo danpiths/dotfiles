@@ -30,6 +30,7 @@ in {
   initContent = ''
     export FORGE_CONFIG="${homeDirectory}/.config/forgecode"
     export HISTORY_IGNORE=":*"
+    export PATH="${homeDirectory}/go/bin:$PATH"
 
     if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" == "Dark" ]]; then
         export APPEARANCE="dark"

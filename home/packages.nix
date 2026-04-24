@@ -27,6 +27,7 @@
     devenv
     claude-code
     nodejs
+    go
     erlang
     gleam
     forgecode
