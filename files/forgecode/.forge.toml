@@ -69,15 +69,15 @@ accept_invalid_certs = false
 
 [session]
 provider_id = "codex"
-model_id = "gpt-5.4"
+model_id = "gpt-5.5"
 
 [commit]
 provider_id = "codex"
-model_id = "gpt-5.4-mini"
+model_id = "gpt-5.5"
 
 [suggest]
 provider_id = "codex"
-model_id = "gpt-5.4"
+model_id = "gpt-5.5"
 
 [updates]
 frequency = "daily"
