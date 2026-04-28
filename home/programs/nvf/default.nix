@@ -55,7 +55,7 @@ in {
       pngpaste
       sqlfluff
       tree-sitter
-      nodejs_24
+      nodejs
     ];
     extraPlugins = with pkgs.vimPlugins; {
       ts-comments = {
