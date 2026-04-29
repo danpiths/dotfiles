@@ -120,6 +120,10 @@
   in {
     enable = true;
     settings = {
+      repoPaths = {
+        "maximhq/bifrost" = "${homeDirectory}/code/maximhq/bifrost-universe/bifrost";
+      };
+
       theme = ghDashThemes.${catppuccinTheme};
     };
   };
