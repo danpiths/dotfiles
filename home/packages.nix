@@ -1,6 +1,6 @@
 {pkgs}: let
-  forgecodeVersion = "2.12.9";
-  forgecodeSha256 = "sha256-3vYfCEbKPRaX19/XC/6rSfeK6n6WcamKSzg9fdcLgHU";
+  forgecodeVersion = "2.12.10";
+  forgecodeSha256 = "sha256-PDXkpVZeD2OU6R0ahmOQ0Ab5uNbGslwv1qwJi0aq5dQ";
   forgecode = pkgs.stdenvNoCC.mkDerivation {
     pname = "forgecode";
     version = forgecodeVersion;

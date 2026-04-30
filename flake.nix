@@ -43,17 +43,9 @@
       "raycast"
     ];
 
-    # TEMPORARY (done to skip failing fish build via direnv)
-    overlays = [
-      (_: prev: {
-        fish = prev.fish.overrideAttrs (_: {
-          doCheck = false; # skip the failing test suite
-        });
-      })
-    ];
-
     pkgs = import nixpkgs {
-      inherit system overlays;
+      inherit system;
+
       config = {
         # ONLY allow the packages in `allowedUnfree`
         allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) allowedUnfreeSoftware;
