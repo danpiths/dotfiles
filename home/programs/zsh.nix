@@ -154,5 +154,6 @@ in {
     cpntfs = "sudo rsync -azP --no-o --no-g";
     mntfs = "sudo --preserve-env=${sudoPreserveEnv} ${../../files/scripts/mount-ntfs.sh}";
     untfs = "sudo --preserve-env=${sudoPreserveEnv} ${../../files/scripts/unmount-ntfs.sh}";
+    gtr = "${../../files/scripts/git-rename-convention.sh}";
   };
 }
