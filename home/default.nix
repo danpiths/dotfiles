@@ -23,20 +23,21 @@ in {
       stateVersion
       homeDirectory
       ;
-
-    # symlink files directly
-    # (do not use recursive to avoid cpoying instead of symlinking)
-    file.".config/graphite" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/graphite";
-    };
-    file.".config/karabiner" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/karabiner";
-    };
-    file.".config/forgecode/.forge.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/.forge.toml";
-    };
-    file.".config/forgecode/permissions.yaml" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
+    file = {
+      # symlink files directly
+      # (do not use recursive to avoid cpoying instead of symlinking)
+      ".config/graphite" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/graphite";
+      };
+      ".config/karabiner" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/karabiner";
+      };
+      ".config/forgecode/.forge.toml" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/.forge.toml";
+      };
+      ".config/forgecode/permissions.yaml" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
+      };
     };
 
     sessionVariables = {
