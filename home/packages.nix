@@ -30,6 +30,7 @@
     go
     erlang
     gleam
+    gum
     forgecode
   ];
 in

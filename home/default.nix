@@ -46,5 +46,5 @@ in {
 
   gtk.gtk4.theme = null;
 
-  programs = import ./programs.nix {inherit homeDirectory pkgs catppuccinTheme;};
+  programs = import ./programs.nix {inherit homeDirectory pkgs catppuccinTheme config;};
 }
