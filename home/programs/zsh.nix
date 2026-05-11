@@ -105,13 +105,6 @@ in {
         printf '\n\n'
         zle reset-prompt
     }
-
-    # re-apply forge keybindings after zsh-vi-mode overrides them
-    function zvm_after_init() {
-        bindkey '^M' forge-accept-line
-        bindkey '^J' forge-accept-line
-        bindkey '^I' forge-completion
-    }
   '';
 
   oh-my-zsh = {
