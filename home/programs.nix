@@ -34,6 +34,11 @@
 
   codex.enable = true;
 
+  lazygit = {
+    enable = true;
+    settings.git.overrideGpg = true;
+  };
+
   fzf = {
     enable = true;
     enableZshIntegration = true;

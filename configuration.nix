@@ -71,7 +71,6 @@ in {
     taps = [
       "gromgit/fuse"
       "hashicorp/tap"
-      "jesseduffield/lazygit"
       "libsql/sqld"
       "planetscale/tap"
       "stripe/stripe-cli"
@@ -91,7 +90,6 @@ in {
       "gnupg"
       "graphviz"
       "htop"
-      "lazygit"
       "librdkafka"
       "lua"
       "mysql-client@8.0"
