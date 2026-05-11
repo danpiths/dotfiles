@@ -97,6 +97,15 @@ in {
         eval "$(forge zsh theme)"
     fi
 
+    # Keep Forge output visible when zle reset-prompt redraws a multi-line prompt.
+    function _forge_reset() {
+        BUFFER=""
+        CURSOR=0
+        zle -I
+        printf '\n\n'
+        zle reset-prompt
+    }
+
     # re-apply forge keybindings after zsh-vi-mode overrides them
     function zvm_after_init() {
         bindkey '^M' forge-accept-line
