@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
   outputs = inputs @ {
     darwin,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     stylix,
     ...
@@ -52,6 +54,14 @@
       };
     };
 
+    stablePkgs = import nixpkgs-stable {
+      inherit system;
+
+      config = {
+        allowUnfreePredicate = pkg: builtins.elem (nixpkgs-stable.lib.getName pkg) allowedUnfreeSoftware;
+      };
+    };
+
     homeDirPrefix =
       if pkgs.stdenv.hostPlatform.isDarwin
       then "/Users"
@@ -65,6 +75,7 @@
         username
         stateVersion
         pkgs
+        stablePkgs
         homeDirPrefix
         homeDirectory
         catppuccinTheme
