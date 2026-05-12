@@ -1,5 +1,6 @@
 {
   pkgs,
+  stablePkgs,
   inputs,
   system,
   homeDirectory,
@@ -15,7 +16,7 @@ in {
       vim
       nixd
       nil
-      kitty
+      stablePkgs.kitty
       utm
       raycast
     ];
