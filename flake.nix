@@ -43,6 +43,7 @@
       "graphite-cli"
       "claude-code"
       "raycast"
+      "datagrip"
     ];
 
     pkgs = import nixpkgs {

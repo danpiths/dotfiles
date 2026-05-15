@@ -33,6 +33,7 @@
     bruno
     gum
     forgecode
+    jetbrains.datagrip
   ];
 in
   nixTools
