@@ -95,7 +95,13 @@ in {
     enableLuaLoader = true;
     autopairs.nvim-autopairs.enable = true;
     comments.comment-nvim.enable = true;
-    formatter.conform-nvim.enable = true;
+    formatter.conform-nvim = {
+      enable = true;
+      setupOpts = {
+        formatters.erlfmt.command = pkgs.lib.getExe pkgs.erlfmt;
+        formatters_by_ft.erlang = ["erlfmt"];
+      };
+    };
     lineNumberMode = "relative";
     mini.icons.enable = true;
     notify.nvim-notify.enable = true;
@@ -257,6 +263,11 @@ in {
     lsp = {
       enable = true;
       presets.tailwindcss-language-server.enable = true;
+      servers.elp = {
+        cmd = [(pkgs.lib.getExe' pkgs.erlang-language-platform "elp") "server"];
+        filetypes = ["erlang"];
+        root_markers = ["rebar.config" "erlang.mk" ".git"];
+      };
       mappings = {
         format = null; # disable default format mapping so that conform.nvim can handle it
         codeAction = null; # disable default code action mapping so that lspsaga can handle it
