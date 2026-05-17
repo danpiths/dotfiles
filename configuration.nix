@@ -78,6 +78,7 @@ in {
     ];
 
     brews = [
+      "infisical/get-cli/infisical"
       "act"
       "cloud-sql-proxy"
       "cmake"
