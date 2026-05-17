@@ -19,6 +19,7 @@ in {
       stablePkgs.kitty
       utm
       raycast
+      caddy
     ];
     # get completion for system packages (e.g. systemd)
     pathsToLink = ["/share/zsh"];
