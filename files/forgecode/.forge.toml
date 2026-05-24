@@ -32,8 +32,10 @@ tool_supported = true
 currency_symbol = "$"
 currency_conversion_rate = 1.0
 verify_todos = true
+use_text_patch_fallback = false
 research_subagent = true
 subagents = true
+merge_system_messages = false
 
 [retry]
 initial_backoff_ms = 200
