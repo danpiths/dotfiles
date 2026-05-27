@@ -1,13 +1,8 @@
-{pkgs}: let
-  forgecodeVersion = "2.12.16";
-  forgecodeSha256 = "sha256-ftsbbHdyhVpQHuMZwYtaWT7itffnylNtozdixfmiTBI=";
+{pkgs, inputs}: let
   forgecode = pkgs.stdenvNoCC.mkDerivation {
     pname = "forgecode";
-    version = forgecodeVersion;
-    src = pkgs.fetchurl {
-      url = "https://github.com/tailcallhq/forgecode/releases/download/v${forgecodeVersion}/forge-aarch64-apple-darwin";
-      sha256 = forgecodeSha256;
-    };
+    version = "bin";
+    src = inputs.forgecode-bin;
     dontUnpack = true;
     installPhase = ''
       mkdir -p $out/bin

@@ -206,6 +206,18 @@
         "type": "github"
       }
     },
+    "forgecode-bin": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-OnurA/6XA6ASEBj/v/D2q1YoYd1m6T12kcgxgxTUujY=",
+        "type": "file",
+        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.12.16/forge-aarch64-apple-darwin"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.12.16/forge-aarch64-apple-darwin"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -382,6 +394,7 @@
       "inputs": {
         "darwin": "darwin",
         "direnv-instant": "direnv-instant",
+        "forgecode-bin": "forgecode-bin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
