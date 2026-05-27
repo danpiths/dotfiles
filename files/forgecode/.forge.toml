@@ -95,5 +95,5 @@ message_threshold = 200
 on_turn_end = false
 
 [reasoning]
-effort = "medium"
+effort = "low"
 enabled = true
