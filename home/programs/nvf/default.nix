@@ -53,6 +53,7 @@ in {
     ];
     extraPackages = with pkgs; [
       pngpaste
+      ripgrep
       sqlfluff
       tree-sitter
       nodejs
