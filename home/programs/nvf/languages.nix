@@ -64,4 +64,10 @@
     extensions.ts-error-translator.enable = true;
     extraDiagnostics.enable = false;
   };
+
+  tsx = {
+    enable = true;
+    lsp.enable = true;
+    extraDiagnostics.enable = false;
+  };
 }
