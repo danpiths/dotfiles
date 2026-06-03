@@ -63,6 +63,7 @@ in {
   # Declarative Homebrew management
   homebrew = {
     enable = true;
+    enableZshIntegration = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
