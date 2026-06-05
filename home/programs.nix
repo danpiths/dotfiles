@@ -44,6 +44,8 @@
     enableZshIntegration = true;
   };
 
+  k9s.enable = true;
+
   gh-dash = let
     ghDashThemes = {
       latte = {
