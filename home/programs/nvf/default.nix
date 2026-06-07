@@ -264,10 +264,15 @@ in {
     lsp = {
       enable = true;
       presets.tailwindcss-language-server.enable = true;
-      servers.elp = {
-        cmd = [(pkgs.lib.getExe' pkgs.erlang-language-platform "elp") "server"];
-        filetypes = ["erlang"];
-        root_markers = ["rebar.config" "erlang.mk" ".git"];
+      servers = {
+        nixd = {
+          root_markers = ["flake.nix" ".git"];
+        };
+        elp = {
+          cmd = [(pkgs.lib.getExe' pkgs.erlang-language-platform "elp") "server"];
+          filetypes = ["erlang"];
+          root_markers = ["rebar.config" "erlang.mk" ".git"];
+        };
       };
       mappings = {
         format = null; # disable default format mapping so that conform.nvim can handle it

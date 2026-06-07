@@ -45,7 +45,10 @@
 
   nix = {
     enable = true;
-    lsp.enable = true;
+    lsp = {
+      enable = true;
+      servers = ["nixd"];
+    };
   };
 
   python = {
