@@ -25,7 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     forgecode-bin = {
-      url = "file+https://github.com/tailcallhq/forgecode/releases/download/v2.13.4/forge-aarch64-apple-darwin";
+      url = "file+https://github.com/tailcallhq/forgecode/releases/download/v2.13.6/forge-aarch64-apple-darwin";
       flake = false;
     };
   };
