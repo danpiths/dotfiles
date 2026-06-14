@@ -74,9 +74,9 @@ in {
     taps = [
       "gromgit/fuse"
       "hashicorp/tap"
+      "infisical/get-cli"
       "libsql/sqld"
       "planetscale/tap"
-      "stripe/stripe-cli"
     ];
 
     brews = [
@@ -111,14 +111,13 @@ in {
       "gromgit/fuse/ntfs-3g-mac"
       "libsql/sqld/sqld"
       "planetscale/tap/pscale"
-      "stripe/stripe-cli/stripe"
     ];
 
     casks = [
       "kindavim"
       "wooshy"
       "scrolla"
-      "linear-linear"
+      "linear"
       "beekeeper-studio"
       "bentobox"
       "docker-desktop"

@@ -1,4 +1,7 @@
-{pkgs, inputs}: let
+{
+  pkgs,
+  inputs,
+}: let
   forgecode = pkgs.stdenvNoCC.mkDerivation {
     pname = "forgecode";
     version = "bin";
@@ -23,7 +26,7 @@
     claude-code
     nodejs
     go
-    erlang
+    beamPackages.erlang
     gleam
     bruno
     gum
