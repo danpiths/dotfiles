@@ -64,7 +64,10 @@
   typescript = {
     enable = true;
     lsp.enable = true;
-    extensions.ts-error-translator.enable = true;
+    extensions.ts-error-translator = {
+      enable = true;
+      setupOpts.auto_attach = true;
+    };
     extraDiagnostics.enable = false;
   };
 
