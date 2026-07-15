@@ -139,6 +139,10 @@ in {
       "zed"
       "karabiner-elements"
     ];
+
+    masApps = {
+      "WhatsApp" = 310633997;
+    };
   };
 
   # Define user for home-manager (required on Darwin)
