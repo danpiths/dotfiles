@@ -51,6 +51,7 @@
       "claude-code"
       "raycast"
       "datagrip"
+      "orbstack"
     ];
 
     pkgs = import nixpkgs {

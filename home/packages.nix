@@ -33,6 +33,8 @@
     forgecode
     slack
     fladder
+    orbstack
+    kubernetes-helm
   ];
 in
   nixTools
