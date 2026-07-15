@@ -31,6 +31,7 @@
     bruno
     gum
     forgecode
+    slack
   ];
 in
   nixTools

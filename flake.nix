@@ -45,6 +45,7 @@
     catppuccinTheme = import ./theme.nix;
     allowedUnfreeSoftware = [
       "notion-app"
+      "slack"
       "graphite-cli"
       "claude-code"
       "raycast"
