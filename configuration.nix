@@ -116,6 +116,8 @@ in {
     ];
 
     casks = [
+      "notion-calendar"
+      "wispr-flow"
       "kindavim"
       "wooshy"
       "scrolla"
