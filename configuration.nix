@@ -151,6 +151,54 @@ in {
     showMissionControlGestureEnabled = true;
   };
 
+  # Trackpad settings across Point & Click, Scroll & Zoom, and More Gestures.
+  system.defaults.NSGlobalDomain = {
+    AppleEnableSwipeNavigateWithScrolls = true;
+    "com.apple.swipescrolldirection" = false;
+    "com.apple.mouse.tapBehavior" = 1;
+    "com.apple.trackpad.enableSecondaryClick" = true;
+    "com.apple.trackpad.forceClick" = true;
+    "com.apple.trackpad.scaling" = 1.0;
+  };
+
+  system.defaults.trackpad = {
+    # Point & Click
+    Clicking = true;
+    FirstClickThreshold = 1;
+    SecondClickThreshold = 1;
+    ActuateDetents = true;
+    ForceSuppressed = false;
+    TrackpadRightClick = true;
+    TrackpadCornerSecondaryClick = 0;
+    TrackpadThreeFingerTapGesture = 0;
+
+    # Scroll & Zoom
+    TrackpadMomentumScroll = true;
+    TrackpadPinch = true;
+    TrackpadRotate = true;
+    TrackpadTwoFingerDoubleTapGesture = true;
+
+    # More Gestures
+    TrackpadFourFingerHorizSwipeGesture = 2;
+    TrackpadFourFingerPinchGesture = 2;
+    TrackpadFourFingerVertSwipeGesture = 2;
+    TrackpadThreeFingerHorizSwipeGesture = 1;
+    TrackpadThreeFingerVertSwipeGesture = 2;
+    TrackpadTwoFingerFromRightEdgeSwipeGesture = 3;
+    TrackpadThreeFingerDrag = false;
+  };
+
+  # Launchpad/Show Desktop uses an additional five-finger preference that
+  # nix-darwin does not currently expose as a typed trackpad option.
+  system.defaults.CustomUserPreferences = {
+    "com.apple.AppleMultitouchTrackpad" = {
+      TrackpadFiveFingerPinchGesture = 2;
+    };
+    "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+      TrackpadFiveFingerPinchGesture = 2;
+    };
+  };
+
   # Declarative keyboard shortcuts (matches current system state)
   system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
     AppleSymbolicHotKeys = let
