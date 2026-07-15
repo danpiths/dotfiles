@@ -151,8 +151,14 @@ in {
     showMissionControlGestureEnabled = true;
   };
 
-  # Trackpad settings across Point & Click, Scroll & Zoom, and More Gestures.
+  # Trackpad and keyboard settings.
   system.defaults.NSGlobalDomain = {
+    # Fast key repeat; holding a letter repeats instead of showing accents.
+    ApplePressAndHoldEnabled = false;
+    InitialKeyRepeat = 12;
+    KeyRepeat = 2;
+
+    # Trackpad settings across Point & Click, Scroll & Zoom, and More Gestures.
     AppleEnableSwipeNavigateWithScrolls = true;
     "com.apple.swipescrolldirection" = false;
     "com.apple.mouse.tapBehavior" = 1;
