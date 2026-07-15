@@ -209,13 +209,13 @@
     "forgecode-bin": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-hqZiYXfHBKkfawyybJVlKdNOlMLPHcYtjXexu5sbUns=",
+        "narHash": "sha256-hoouDtH3imTcOlWEJ3PJJzCmGkqHaliUsvE8PJScYpQ=",
         "type": "file",
-        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.13.16/forge-aarch64-apple-darwin"
+        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.13.17/forge-aarch64-apple-darwin"
       },
       "original": {
         "type": "file",
-        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.13.16/forge-aarch64-apple-darwin"
+        "url": "https://github.com/tailcallhq/forgecode/releases/download/v2.13.17/forge-aarch64-apple-darwin"
       }
     },
     "fromYaml": {
