@@ -142,6 +142,15 @@ in {
     home = homeDirectory;
   };
 
+  # Keep the Dock hidden until the pointer reaches its screen edge.
+  system.defaults.dock = {
+    autohide = true;
+    showAppExposeGestureEnabled = true;
+    showDesktopGestureEnabled = true;
+    showLaunchpadGestureEnabled = true;
+    showMissionControlGestureEnabled = true;
+  };
+
   # Declarative keyboard shortcuts (matches current system state)
   system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
     AppleSymbolicHotKeys = let
