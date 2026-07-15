@@ -59,6 +59,7 @@ in {
   # ensures the Nix daemon runs at the system level
   services = {
     nix-daemon.enableSocketListener = true;
+    tailscale.enable = true;
   };
 
   # Declarative Homebrew management
