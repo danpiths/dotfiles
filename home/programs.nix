@@ -44,6 +44,8 @@
     enableZshIntegration = true;
   };
 
+  discord.enable = true;
+
   k9s.enable = true;
 
   lazydocker.enable = true;

@@ -46,6 +46,7 @@
     allowedUnfreeSoftware = [
       "notion-app"
       "slack"
+      "discord"
       "graphite-cli"
       "claude-code"
       "raycast"
