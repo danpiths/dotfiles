@@ -32,6 +32,7 @@
     gum
     forgecode
     slack
+    fladder
   ];
 in
   nixTools
