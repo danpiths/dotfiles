@@ -20,6 +20,7 @@ in {
       utm
       raycast
       caddy
+      notion-app
     ];
     # get completion for system packages (e.g. systemd)
     pathsToLink = ["/share/zsh"];
