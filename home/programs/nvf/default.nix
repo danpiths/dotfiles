@@ -20,7 +20,7 @@
       owner = "atiladefreitas";
       repo = "dooing";
       rev = "master";
-      sha256 = "sha256-kMnSOFumRtMK1SN34oL+VsoLtsx1dxxY5USvwTP4TMU=";
+      sha256 = "sha256-exnzPti0W9Ag3b49dvWVt47YpUdnlBpX+UfV+EPx45M=";
     };
   };
   luadev-nvim = pkgs.vimUtils.buildVimPlugin {
