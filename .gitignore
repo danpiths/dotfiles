@@ -1,1 +1,3 @@
 /files
+/config/hostname.nix
+/config/username.nix
