@@ -1,3 +1,6 @@
+# private repo
 /files
+
+# config files
 /config/hostname.nix
 /config/username.nix
