@@ -47,7 +47,7 @@
       "notion-app"
       "slack"
       "discord"
-      "graphite-cli"
+      "graphite-cli-unwrapped"
       "claude-code"
       "raycast"
       "datagrip"
