@@ -153,6 +153,7 @@ in {
   # Keep the Dock hidden until the pointer reaches its screen edge.
   system.defaults.dock = {
     autohide = true;
+    show-recents = false;
     showAppExposeGestureEnabled = true;
     showDesktopGestureEnabled = true;
     showLaunchpadGestureEnabled = true;
