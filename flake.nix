@@ -39,10 +39,10 @@
     ...
   }: let
     system = "aarch64-darwin";
-    hostName = "Dhwanils-MacBook-Pro";
-    username = "dhwanil";
+    username = import ./config/username.nix;
+    hostName = import ./config/hostname.nix;
     stateVersion = "25.05"; # See https://nixos.org/manual/nixpkgs/stable for most recent
-    catppuccinTheme = import ./theme.nix;
+    catppuccinTheme = import ./config/theme.nix;
     allowedUnfreeSoftware = [
       "notion-app"
       "slack"
