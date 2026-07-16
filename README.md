@@ -13,8 +13,14 @@ a macos configuration managed with **nix-darwin** and **home manager**.
 2.  **clone the repository**:
 
     ```bash
-    git clone https://github.com/danpiths/dotfiles.git ~/dotfiles
+    git clone --recurse-submodules https://github.com/danpiths/dotfiles.git ~/dotfiles
     cd ~/dotfiles
+    ```
+
+    _if you already cloned the repository without its submodules, run:_
+
+    ```bash
+    git submodule update --init --recursive
     ```
 
 3.  **apply configuration**:
@@ -26,7 +32,7 @@ a macos configuration managed with **nix-darwin** and **home manager**.
     _on subsequent updates, you can just run:_
 
     ```bash
-    nh darwin switch ~/dotfiles
+    nh darwin switch path:$HOME/dotfiles
     ```
 
 ## 📄 license
