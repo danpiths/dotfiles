@@ -116,6 +116,7 @@ in {
     ];
 
     casks = [
+      "discord"
       "notion-calendar"
       "wispr-flow"
       "kindavim"
