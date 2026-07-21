@@ -145,12 +145,12 @@ in {
     lg = "lazygit";
 
     # eza
-    ls = "eza --icons";
-    lsa = "eza --all --icons";
-    ll = "eza --long --header --git --icons";
-    lla = "eza --long --header --git --all --icons";
-    ltree = "eza --tree --ignore-glob=\"node_modules\" --icons";
-    latree = "eza --tree --ignore-glob=\"node_modules\" --all --icons";
+    ls = "eza --icons=always";
+    lsa = "eza --all --icons=always";
+    ll = "eza --long --header --git --icons=always";
+    lla = "eza --long --header --git --all --icons=always";
+    ltree = "eza --tree --ignore-glob=\"node_modules\" --icons=always";
+    latree = "eza --tree --ignore-glob=\"node_modules\" --all --icons=always";
 
     # custom
     cpntfs = "sudo rsync -azP --no-o --no-g";
