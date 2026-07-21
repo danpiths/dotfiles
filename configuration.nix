@@ -204,14 +204,23 @@ in {
     TrackpadThreeFingerDrag = false;
   };
 
-  # Launchpad/Show Desktop uses an additional five-finger preference that
-  # nix-darwin does not currently expose as a typed trackpad option.
+  # Launchpad/Show Desktop uses additional five-finger preferences that
+  # nix-darwin does not currently expose as typed trackpad options.
+  # Notification Centre settings are also declared here as native defaults.
   system.defaults.CustomUserPreferences = {
     "com.apple.AppleMultitouchTrackpad" = {
       TrackpadFiveFingerPinchGesture = 2;
     };
     "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
       TrackpadFiveFingerPinchGesture = 2;
+    };
+    "com.apple.ncprefs" = {
+      content_visibility = 1; # Show previews: When Unlocked
+    };
+    "com.apple.notificationcenterui" = {
+      dndEnabledDisplaySleep = true; # Do not show while display is sleeping
+      dndEnabledDisplayLock = false; # Show while screen is locked
+      turnOnDNDWhenMirroring = false; # Allow while mirroring or sharing
     };
   };
 
