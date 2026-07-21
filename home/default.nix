@@ -27,7 +27,7 @@ in {
       # symlink files directly
       # (do not use recursive to avoid cpoying instead of symlinking)
       ".zsh_history" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/zsh/.zsh_history";
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/zsh/zsh_history";
       };
       ".config/graphite" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/graphite";
