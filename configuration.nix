@@ -215,6 +215,9 @@ in {
     };
   };
 
+  # Save screenshots in ~/Pictures/Screenshots.
+  system.defaults.screencapture.location = "~/Pictures/Screenshots";
+
   # Declarative keyboard shortcuts (matches current system state)
   system.defaults.CustomUserPreferences."com.apple.symbolichotkeys" = {
     AppleSymbolicHotKeys = let
