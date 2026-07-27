@@ -40,7 +40,10 @@ in {
   autocd = true;
   enableCompletion = true;
 
-  history.ignoreAllDups = true;
+  history = {
+    ignoreAllDups = true;
+    path = "${homeDirectory}/dotfiles/files/zsh/zsh_history";
+  };
 
   historySubstringSearch.enable = true;
 
