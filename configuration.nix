@@ -116,6 +116,7 @@ in {
     ];
 
     casks = [
+      "vlc"
       "slack"
       "discord"
       "notion-calendar"
