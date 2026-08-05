@@ -31,7 +31,6 @@
     bruno
     gum
     forgecode
-    slack
     fladder
     orbstack
     kubernetes-helm
