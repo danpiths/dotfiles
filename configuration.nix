@@ -116,6 +116,7 @@ in {
     ];
 
     casks = [
+      "daisydisk"
       "vlc"
       "slack"
       "discord"
