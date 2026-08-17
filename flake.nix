@@ -3,6 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     darwin = {
       url = "github:nix-darwin/nix-darwin/master";
@@ -33,6 +38,7 @@
   outputs = inputs @ {
     darwin,
     nixpkgs,
+    nur,
     nixpkgs-stable,
     home-manager,
     stylix,
@@ -69,6 +75,14 @@
       };
     };
 
+    nurPkgs = import nur {
+      inherit system;
+
+      config = {
+        allowUnfreePredicate = pkg: builtins.elem (nur.lib.getName pkg) allowedUnfreeSoftware;
+      };
+    };
+
     homeDirPrefix =
       if pkgs.stdenv.hostPlatform.isDarwin
       then "/Users"
@@ -83,6 +97,7 @@
         stateVersion
         pkgs
         stablePkgs
+        nurPkgs
         homeDirPrefix
         homeDirectory
         catppuccinTheme
@@ -93,6 +108,9 @@
     # $ sudo darwin-rebuild build --flake .
     darwinConfigurations.${hostName} = darwin.lib.darwinSystem {
       modules = [
+        # Adds the NUR overlay
+        nur.modules.darwin.default
+
         stylix.darwinModules.stylix
         {
           options.stylix.icons = nixpkgs.lib.mkOption {

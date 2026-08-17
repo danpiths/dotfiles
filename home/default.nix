@@ -1,6 +1,7 @@
 {
   homeDirectory,
   pkgs,
+  nurPkgs,
   username,
   stateVersion,
   inputs,
@@ -8,7 +9,7 @@
   config,
   ...
 }: let
-  packages = import ./packages.nix {inherit pkgs inputs;};
+  packages = import ./packages.nix {inherit pkgs inputs nurPkgs;};
   zshPath = "${pkgs.zsh}/bin/zsh";
 in {
   imports = [
@@ -48,5 +49,5 @@ in {
     };
   };
 
-  programs = import ./programs.nix {inherit homeDirectory pkgs catppuccinTheme config;};
+  programs = import ./programs.nix {inherit homeDirectory pkgs catppuccinTheme config nurPkgs;};
 }

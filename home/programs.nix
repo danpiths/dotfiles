@@ -1,6 +1,7 @@
 {
   homeDirectory,
   pkgs,
+  nurPkgs,
   catppuccinTheme,
   config,
 }: {

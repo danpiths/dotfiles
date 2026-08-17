@@ -1,5 +1,6 @@
 {
   pkgs,
+  nurPkgs,
   inputs,
 }: let
   forgecode = pkgs.stdenvNoCC.mkDerivation {
