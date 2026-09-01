@@ -39,8 +39,17 @@ in {
       ".config/forgecode/.forge.toml" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/.forge.toml";
       };
+      ".config/forgecode/.mcp.json" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/mcp.json";
+      };
+      ".config/forgecode/AGENTS.md" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/AGENTS.md";
+      };
       ".config/forgecode/permissions.yaml" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
+      };
+      ".config/forgecode/skills" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/skills";
       };
     };
 
