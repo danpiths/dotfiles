@@ -115,6 +115,7 @@ in {
     ];
 
     casks = [
+      "hermes-desktop"
       "raycast"
       "daisydisk"
       "vlc"
