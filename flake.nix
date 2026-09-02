@@ -53,7 +53,6 @@
       "notion-app"
       "graphite-cli-unwrapped"
       "claude-code"
-      "raycast"
       "datagrip"
       "orbstack"
     ];

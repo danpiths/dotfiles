@@ -18,7 +18,6 @@ in {
       nil
       stablePkgs.kitty
       utm
-      raycast
       caddy
       notion-app
     ];
@@ -116,6 +115,7 @@ in {
     ];
 
     casks = [
+      "raycast"
       "daisydisk"
       "vlc"
       "slack"
