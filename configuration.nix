@@ -226,6 +226,18 @@ in {
       dndEnabledDisplayLock = false; # Show while screen is locked
       turnOnDNDWhenMirroring = false; # Allow while mirroring or sharing
     };
+    "com.apple.finder" = {
+      NSUserKeyEquivalents = {
+        Computer = "@~^$c"; # Cmd+Opt+Ctrl+Shift+C
+      };
+    };
+    pbs = {
+      NSServicesStatus = {
+        "com.sindresorhus.Supercharge - Copy Path - service_copyPath" = {
+          key_equivalent = "@$c"; # Cmd+Shift+C
+        };
+      };
+    };
   };
 
   # Save screenshots in ~/Pictures/Screenshots.
