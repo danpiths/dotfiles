@@ -1,5 +1,4 @@
 {ignored_filetypes}: {
-  breadcrumbs.lualine.winbar.enable = false;
   colorful-menu-nvim.enable = true;
   fastaction.enable = true;
   nvim-ufo.enable = true;

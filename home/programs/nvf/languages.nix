@@ -28,10 +28,8 @@
 
   lua = {
     enable = true;
-    lsp = {
-      enable = true;
-      lazydev.enable = true;
-    };
+    lsp.enable = true;
+    extensions.lazydev.enable = true;
   };
 
   markdown = {
