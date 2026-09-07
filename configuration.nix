@@ -115,6 +115,7 @@ in {
     ];
 
     casks = [
+      "chatgpt"
       "hermes-desktop"
       "raycast"
       "daisydisk"
