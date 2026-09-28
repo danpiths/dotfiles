@@ -52,8 +52,6 @@
     allowedUnfreeSoftware = [
       "notion-app"
       "graphite-cli-unwrapped"
-      "claude-code"
-      "datagrip"
       "orbstack"
     ];
 

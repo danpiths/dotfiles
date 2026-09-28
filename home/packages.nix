@@ -24,7 +24,6 @@
     tectonic
     mermaid-cli
     devenv
-    claude-code
     nodejs
     go
     beamPackages.erlang

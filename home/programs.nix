@@ -33,7 +33,7 @@
     ];
   };
 
-  codex.enable = true;
+  # codex.enable = true;
 
   lazygit = {
     enable = true;
