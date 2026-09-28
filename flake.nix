@@ -142,6 +142,7 @@
           home-manager.sharedModules = [
             {
               stylix.targets = {
+                rofi.enable = false;
                 tmux.enable = false;
                 nvf.enable = false;
               };
