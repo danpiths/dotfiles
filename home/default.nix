@@ -45,11 +45,17 @@ in {
       ".config/forgecode/AGENTS.md" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/AGENTS.md";
       };
+      ".codex/AGENTS.md" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/AGENTS.md";
+      };
       ".config/forgecode/permissions.yaml" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
       };
       ".config/forgecode/skills" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/skills";
+      };
+      ".codex/skills/unslop" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/skills/unslop";
       };
     };
 
