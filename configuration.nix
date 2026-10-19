@@ -10,6 +10,10 @@
   ...
 }: let
   nerdFonts = pkgs.nerd-fonts;
+  beekeeperStudioDmg = pkgs.fetchurl {
+    url = "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v6.1.1/Beekeeper-Studio-6.1.1-arm64.dmg";
+    hash = "sha256-ZeLRZb5+ABXlDXTy9oFWFDBFePjh3dGkClgiA4FhJs8=";
+  };
 in {
   environment = {
     systemPackages = with pkgs; [
@@ -29,6 +33,32 @@ in {
       VISUAL = "vim";
     };
   };
+
+  system.activationScripts.postActivation.text = ''
+    app="/Applications/Beekeeper Studio.app"
+    installedVersion=""
+
+    if [ -f "$app/Contents/Info.plist" ]; then
+      installedVersion=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$app/Contents/Info.plist" 2>/dev/null || true)
+    fi
+
+    if [ "$installedVersion" != "6.1.1" ]; then
+      mountPoint=$(mktemp -d /tmp/beekeeper-studio.XXXXXX)
+
+      cleanupBeekeeperMount() {
+        /usr/bin/hdiutil detach "$mountPoint" >/dev/null 2>&1 || true
+        rmdir "$mountPoint" 2>/dev/null || true
+      }
+      trap cleanupBeekeeperMount EXIT
+
+      /usr/bin/hdiutil attach -readonly -nobrowse -mountpoint "$mountPoint" ${beekeeperStudioDmg} >/dev/null
+      rm -rf "$app"
+      /usr/bin/ditto "$mountPoint/Beekeeper Studio.app" "$app"
+
+      cleanupBeekeeperMount
+      trap - EXIT
+    fi
+  '';
 
   nix = {
     # Necessary for using flakes on this system.
@@ -128,7 +158,6 @@ in {
       "wooshy"
       "scrolla"
       "linear"
-      "beekeeper-studio"
       "bentobox"
       "docker-desktop"
       "font-inter"
