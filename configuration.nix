@@ -15,6 +15,11 @@
     hash = "sha256-ZeLRZb5+ABXlDXTy9oFWFDBFePjh3dGkClgiA4FhJs8=";
   };
 in {
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       vim
