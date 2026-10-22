@@ -157,7 +157,7 @@ in {
 
     # custom
     bfstdwn = "function _bfstdwn() { launchctl disable \"gui/$(id -u)/ai.getbifrost.edge.tray\"; launchctl bootout \"gui/$(id -u)\" \"/Library/LaunchAgents/ai.getbifrost.edge.tray.plist\" 2>/dev/null || true; sudo launchctl disable system/ai.getbifrost.edge.daemon; sudo launchctl bootout system \"/Library/LaunchDaemons/ai.getbifrost.edge.daemon.plist\" 2>/dev/null || true; }; _bfstdwn";
-    bfstup = "sudo \"/usr/local/bin/Restart Bifrost Edge\"";
+    bfstup = "function _bfstup() { sudo \"/usr/local/bin/Restart Bifrost Edge\" && launchctl enable \"gui/$(id -u)/ai.getbifrost.edge.tray\" && { launchctl print \"gui/$(id -u)/ai.getbifrost.edge.tray\" >/dev/null 2>&1 || launchctl bootstrap \"gui/$(id -u)\" \"/Library/LaunchAgents/ai.getbifrost.edge.tray.plist\"; } && launchctl kickstart \"gui/$(id -u)/ai.getbifrost.edge.tray\"; }; _bfstup";
     cpntfs = "sudo rsync -azP --no-o --no-g";
     mntfs = "sudo --preserve-env=${sudoPreserveEnv} ${../../files/scripts/mount-ntfs.sh}";
     untfs = "sudo --preserve-env=${sudoPreserveEnv} ${../../files/scripts/unmount-ntfs.sh}";
