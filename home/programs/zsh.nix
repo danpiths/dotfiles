@@ -92,12 +92,14 @@ in {
         export APPEARANCE="light"
     fi
 
-    # forge shell integration
-    if [[ -z "$_FORGE_PLUGIN_LOADED" ]]; then
-        eval "$(forge zsh plugin)"
-    fi
-    if [[ -z "$_FORGE_THEME_LOADED" ]]; then
-        eval "$(forge zsh theme)"
+    # Terminal integrations must not run during headless environment probes.
+    if [[ -t 0 && -t 1 ]]; then
+        if [[ -z "$_FORGE_PLUGIN_LOADED" ]]; then
+            eval "$(forge zsh plugin)"
+        fi
+        if [[ -z "$_FORGE_THEME_LOADED" ]]; then
+            eval "$(forge zsh theme)"
+        fi
     fi
 
     # Keep Forge output visible when zle reset-prompt redraws a multi-line prompt.
