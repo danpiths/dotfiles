@@ -39,6 +39,7 @@
     set -g renumber-windows on
     set -g set-clipboard on
     set -g status-interval 1
+    set -g window-status-current-style none
 
     ##### Vi copy mode tweaks #####
     set-window-option -g mode-keys vi
