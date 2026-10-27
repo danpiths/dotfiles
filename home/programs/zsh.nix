@@ -51,10 +51,14 @@ in {
 
   autosuggestion.enable = true;
 
+  profileExtra = ''
+    export PATH="$HOME/.local/bin:$PATH"
+  '';
+
   initContent = ''
     export FORGE_CONFIG="${homeDirectory}/.config/forgecode"
     export HISTORY_IGNORE=":*"
-    export PATH="${homeDirectory}/go/bin:$PATH"
+    export PATH="${homeDirectory}/go/bin:$HOME/.local/bin:$PATH"
 
     # gum styling from Stylix's active Base16 theme
     export COLOR_BASE="${gumColors.base00}"
