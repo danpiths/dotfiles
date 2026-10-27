@@ -61,6 +61,7 @@ in {
 
     sessionVariables = {
       MAKEFLAGS = "SHELL=${zshPath}";
+      NH_SHOW_ACTIVATION_LOGS = "1";
     };
   };
 
