@@ -7,6 +7,7 @@
   inputs,
   catppuccinTheme,
   config,
+  lib,
   ...
 }: let
   packages = import ./packages.nix {inherit pkgs inputs nurPkgs;};
@@ -25,8 +26,7 @@ in {
       homeDirectory
       ;
     file = {
-      # symlink files directly
-      # (do not use recursive to avoid cpoying instead of symlinking)
+      # Link live configuration directly; Forge and Claude skills use recursive merges.
       ".zsh_history" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/zsh/zsh_history";
       };
@@ -37,27 +37,37 @@ in {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/karabiner";
       };
       ".config/forgecode/.forge.toml" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/.forge.toml";
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/forge.toml";
       };
       ".config/forgecode/.mcp.json" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/mcp.json";
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/agent-harness/mcp.json";
       };
       ".config/forgecode/AGENTS.md" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/AGENTS.md";
-      };
-      ".codex/AGENTS.md" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/AGENTS.md";
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/agent-harness/AGENTS.md";
       };
       ".config/forgecode/permissions.yaml" = {
         source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/permissions.yaml";
       };
       ".config/forgecode/skills" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/skills";
+        source = ../files/agent-harness/skills;
+        recursive = true;
       };
-      ".codex/skills/unslop" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/forgecode/skills/unslop";
+      ".codex/AGENTS.md" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/agent-harness/AGENTS.md";
       };
-    };
+      ".claude/CLAUDE.md" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/dotfiles/files/agent-harness/AGENTS.md";
+      };
+      ".claude/skills" = {
+        source = ../files/agent-harness/skills;
+        recursive = true;
+      };
+    } // lib.mapAttrs' (name: _: {
+      name = ".codex/skills/${name}";
+      value = {
+        source = ../files/agent-harness/skills + "/${name}";
+      };
+    }) (builtins.readDir ../files/agent-harness/skills);
 
     sessionVariables = {
       MAKEFLAGS = "SHELL=${zshPath}";
