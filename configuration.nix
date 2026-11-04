@@ -24,7 +24,6 @@ in {
       vim
       nixd
       nil
-      stablePkgs.kitty
       utm
       caddy
       notion-app

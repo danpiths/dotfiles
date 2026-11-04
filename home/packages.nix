@@ -16,7 +16,6 @@
   };
 
   nixTools = with pkgs; [
-    utm
     graphite-cli
     chafa
     imagemagick
