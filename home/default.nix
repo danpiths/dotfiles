@@ -18,6 +18,11 @@ in {
     inputs.nvf.homeManagerModules.default
   ];
 
+  targets.darwin = {
+    linkApps.enable = false;
+    copyApps.enable = true;
+  };
+
   home = {
     inherit
       packages
