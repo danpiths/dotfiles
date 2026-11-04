@@ -148,6 +148,8 @@ in {
     ];
 
     casks = [
+      "t3-code@nightly"
+      "grok-bot"
       "chatgpt"
       "hermes-desktop"
       "raycast"
