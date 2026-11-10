@@ -15,7 +15,7 @@
 in {
   imports = [
     inputs.direnv-instant.homeModules.direnv-instant
-    inputs.nvf.homeManagerModules.default
+    inputs.nvf.homeModules.default
   ];
 
   targets.darwin = {
