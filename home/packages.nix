@@ -17,6 +17,7 @@
 
   nixTools = with pkgs; [
     graphite-cli
+    croc
     chafa
     imagemagick
     ghostscript
