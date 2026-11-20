@@ -107,6 +107,7 @@ in {
     greedyCasks = true;
 
     taps = [
+      "driceroland/tap"
       "gromgit/fuse"
       "hashicorp/tap"
       "infisical/get-cli"
@@ -149,6 +150,7 @@ in {
     ];
 
     casks = [
+      "driceroland/tap/search"
       "t3-code@nightly"
       "grok-bot"
       "chatgpt"
